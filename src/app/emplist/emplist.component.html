@@ -1,0 +1,31 @@
+<section class="text-gray-400 bg-gray-900 body-font">
+  <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-col text-center w-full mb-20">
+      <h1 class="text-2xl font-medium title-font mb-4 text-white">OUR TEAM</h1>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base">"Welcome to our team! We're a diverse group of passionate individuals dedicated to Nike Corporation. Together, we bring a unique blend of skills, experiences, and perspectives to drive innovation and achieve our objectives. Let's collaborate, inspire, and make great things happen!"</p>
+    </div>
+    <div class="flex flex-wrap -m-4">
+      <div class="p-4 lg:w-1/4 md:w-1/2" *ngFor="let employee of employees">
+        <div class="h-full flex flex-col items-center text-center">
+          <img alt="team" class="flex-shrink-0 rounded-lg w-50 h-56 object-cover object-center mb-4" src="assets/mica.gif">
+          <div class="w-full">
+            <h2 class="title-font font-medium text-lg text-white">{{ employee.fullname }}</h2>
+            <h3 class="text-gray-500 mb-3">Position: Employee</h3>
+            <p class="mb-4">Employee Number: {{ employee.empNumber }}</p>
+            <div *ngIf="employee.gender === 'Male'; else femaleBlock">
+              <p class="mb-2">Gender: Male</p>
+            </div>
+            <ng-template #femaleBlock>
+              <p class="mb-2">Gender: Female</p>
+            </ng-template>
+            <p class="mb-2">Email: {{ employee.email }}</p>
+            <p class="mb-2">Employment Status: {{ employee.employmentStatus }}</p>
+            <p>Salary:  ₱ {{ employee.salary }}</p>
+            <span class="inline-flex">
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
